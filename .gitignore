@@ -1,3 +1,7 @@
+# dev-env
+/docs/
+/home/cx/
+
 # Logs
 logs
 *.log
