@@ -1,8 +1,10 @@
+# syntax=docker/dockerfile:1
+
 # klima:alpine
 FROM alpine:latest
 
 # package updates
-RUN apk add \
+RUN apk add --no-cache \
 sed \
 attr \
 dialog \
@@ -14,7 +16,10 @@ findutils \
 readline \
 lsof \
 less \
-curl && export PAGER=less
+curl \
+openrc \
+openssh \
+&& export PAGER=less
 
 # env and user setup
 RUN cat > /root/.cshrc << EOF \
@@ -41,4 +46,5 @@ EOF \
 || adduser -D --shell /bin/ash localusr \
 && grep 'localusr' /home/cx/users.conf | chpasswd
 
-# network setup
+# openssh
+RUN rc-update add sshd
