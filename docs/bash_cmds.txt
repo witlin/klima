@@ -1,0 +1,10 @@
+grep -x 'remote' ./cx/users.conf
+apk add --no-cache openrc
+rc-update add sshd
+rc-status
+
+# for some reason still have to run these ones inside the container and not from the dockerfile
+adduser -D --home /opt/remote --shell /bin/ash remote
+echo 'remote:rempass' | chpasswd
+touch /run/openrc/softlevel
+/etc/init.d/sshd start

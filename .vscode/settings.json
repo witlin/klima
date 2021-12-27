@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "max": 5
+            },
+            "previewLimit": 50,
+            "server": "host.docker.internal",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "geo-model",
+            "database": "model",
+            "username": "postgres"
+        }
+    ]
+}

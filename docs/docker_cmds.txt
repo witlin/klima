@@ -1,0 +1,11 @@
+
+docker build -t klima:alpine .
+
+docker run --rm -ti --name test -P alpine:latest /bin/ash
+
+# external over host.docker.internal
+docker run --rm -ti -p 22:22 -v ~/git/klima/home:/home klima:alpine /bin/ash
+
+# Postgresql official image from Docker Hub
+ docker run -d -p 5432:5432 --rm --name pg-model -e POSTGRES_PASSWORD=Password1! -e POSTGRES_DB=model -v /volumes/pgdata:/var/lib/postgresql/data postgres
+ 
